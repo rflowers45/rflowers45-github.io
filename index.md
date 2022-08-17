@@ -5,6 +5,7 @@ I'm your go-to guy if you want to get your projects done.
 
 ### Projects
 **Stock Investing**
+![Stock Investing App Photo](/docs/assets/logo.png)
 
 **Boggle**
 
