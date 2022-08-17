@@ -7,7 +7,7 @@ I'm your go-to guy if you want to get your projects done.
 ### Stock Investing
 _____________________________
 
-<img src="/docs/assets/StockInvesting.png" width="300" height="300">
+![Stock Investing Application](/docs/assets/Investing.png)
 
 An investment simulation where the user is given 7 random days and $10,000 in cash in an attempt to make a profit.
 
