@@ -14,7 +14,7 @@ _____________________________
 
 An investment simulation where the user is given 7 random days and $10,000 in cash in an attempt to make a profit.
 
-***Technology/Langauges Used***
+***Technology/Languages Used***
 
 .NET 6 framework, Razer Pages format, Javascript, JQuery, and C#.
 
@@ -134,7 +134,7 @@ _____________________________
 
 The goal of this project was to create a boggle (or boggle-like) game where players select letters from a grid to form a word. The players have a limited amount of time, usually 60-90 seconds, to form as many words as they can. Words are scored based on length. The game requires at least 2 people to participate and results are dispayed at the end of the game.
 
-***Technology/Langauges Used***
+***Technology/Languages Used***
 
 .NET 6 framework, MVC format, SignalR, Javascript, JQuery, MSSQL Server and C#.
 
@@ -209,7 +209,7 @@ _____________________________
 
 This project allows a user to login to a banking application and perform various transactions and banking related tasks. The project includes the ability to create an account, log into an account, salting and hashing on the backend, and perform transaction within the user's account.
 
-***Technology/Langauges Used***
+***Technology/Languages Used***
 
 .NET 6 framework, MVC format, Entity Framework, Javascript, JQuery, and C#.
 
@@ -313,7 +313,7 @@ _____________________________
 
 A simple game of hangman. This project was short and sweet; a good starter project that demonstrates the use of a database and asynchronous interaction web interaction.
 
-***Technology/Langauges Used***
+***Technology/Languages Used***
 
 PHP, SQL, and SSL Certificates
 
