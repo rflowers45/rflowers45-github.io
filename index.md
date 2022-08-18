@@ -129,11 +129,12 @@ I felt very confident with this project and spent a large amount of time dedicat
 ### Boggle
 _____________________________
 
-![A photo of a boggle game interface](/docs/assets/Boggle.png)
+![A photo of a boggle game interface](/docs/assets/Boggle.PNG)
 
 The goal of this project was to create a boggle (or boggle-like) game where players select letters from a grid to form a word. The players have a limited amount of time, usually 60-90 seconds, to form as many words as they can. Words are scored based on length. The game requires at least 2 people to participate and results are dispayed at the end of the game.
 
 ***Technology/Langauges Used***
+
 .NET 6 framework, MVC format, SignalR, Javascript, JQuery, and C#.
 
 ***Challenges***
@@ -169,7 +170,33 @@ The goal of this project was to create a boggle (or boggle-like) game where play
             }            
         }
 ```
+- The use of SignalR was foreign to my team and myself, therfore thorough research and documentation was required in order to implement its use. Similar to the code above, the code below features some usage of SignalR function and the cooresponding javascript functions it calls:
+```
+public async Task Submit(string word)
+        {
+            //Keeping track of what player has submitted the word
+            var currentPlayer = Context.ConnectionId;
 
+            //*************DATABASE CONNECTION*************
+            string connStr = _configuration.GetConnectionString("MyConnString");
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+
+            
+            //Holds return object
+            object obj;
+            //Query DB
+            string query = "SELECT * FROM [dbo].[Words] WHERE words LIKE '" + word + "';";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            obj = cmd.ExecuteScalar();
+            conn.Close();
+            //*************END DATABASE CONNECTION*************
+
+            if (obj == null)
+            {
+                await Clients.Client(currentPlayer).SendAsync("notAWord");
+            }
+```
 
 ### Banking
 _____________________________
