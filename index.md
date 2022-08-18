@@ -51,7 +51,7 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
             $("#slider").slider({
                 min: 1, max: 99, step: 1, value: 0,
                 slide: function(event, ui) {
-                    var price = (ui.value * 100);//This is just a test, simulating the day's stock price
+                    var price = (ui.value * 100);
                     $("#shareCount").val(ui.value); //Linking text field with slider
                     $("#doughnut").roundSlider("setValue", ui.value); //Linking chart with slider
                 }
@@ -72,7 +72,7 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
                 }
             });
             $("#doughnut").change(function(e) {
-                var shares = (e.value / 100) //This is for converting the price into a share. Unused until I can figure out how to pass the daily price into the values
+                var shares = (e.value / 100) //This is for converting the price into a share.
                 $("#slider").slider("option", "value", e.value);
                 $("#shareCount").val(e.value); //Linking chart with slider
 
