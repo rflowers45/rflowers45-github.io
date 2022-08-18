@@ -129,6 +129,18 @@ I felt very confident with this project and spent a large amount of time dedicat
 ### Boggle
 _____________________________
 
+The goal of this project was to create a boggle (or boggle-like) game where players select letters from a grid to form a word. The players have a limited amount of time, usually 60-90 seconds, to form as many words as they can. Words are scored based on length. The game requires at least 2 people to participate and results are dispayed at the end of the game.
+
+***Technology/Langauges Used***
+.NET 6 framework, MVC format, SignalR, Javascript, JQuery, and C#.
+
+***Challenges***
+- Multiple Players
+- SignalR Usage
+- Asynchronous Timer
+
+***Solutions***
+
 ### Banking
 _____________________________
 
