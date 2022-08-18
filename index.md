@@ -1,7 +1,9 @@
 # Robert Flowers Computer Science Portfolio
 Hi, I'm an aspiring software engineer and computer science student at Weber State.
 
-I'm your go-to guy if you want to get your projects done.
+I'm a team guy; I like solving problems with my team and leading them to the finish line!
+
+Below are some projects I've built with my team.
 
 ## Projects
 ### Stock Investing
