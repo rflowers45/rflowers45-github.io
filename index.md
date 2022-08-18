@@ -135,12 +135,12 @@ The goal of this project was to create a boggle (or boggle-like) game where play
 
 ***Technology/Langauges Used***
 
-.NET 6 framework, MVC format, SignalR, Javascript, JQuery, and C#.
+.NET 6 framework, MVC format, SignalR, Javascript, JQuery, MSSQL Server and C#.
 
 ***Challenges***
 - Multiple Players
 - SignalR Usage
-- Asynchronous Timer
+- SignalR Database Connection
 
 ***Solutions***
 - The feature of having multiple players proved to be the most challenging aspect of this project. With enough research, I was able to successfully incorporate multiple players into the game. Below is some code providing an idea of how this was accomplished:
@@ -197,18 +197,110 @@ public async Task Submit(string word)
                 await Clients.Client(currentPlayer).SendAsync("notAWord");
             }
 ```
+- Creating a database of words and sharing/accessing was something I revised repeatedly throughout the design of this project. I was eventually able to implement a database of 100000 most common english words and access it during the game. The code above demonstrates some of the code required to access the db and use querys to return an object.
+
+This project was challenging for myself. SignalR and asynchronous tasks were initially difficult to wrap my head around. Completing this project pushed myself as a software engineer and I am able to walk away with a better understanding of industry-standard technology.
 
 ### Banking
 _____________________________
+
+![A photo of a boggle game interface](/docs/assets/banking.PNG)
+
+This project allows a user to login to a banking application and perform various transactions and banking related tasks. The project includes the ability to create an account, log into an account, salting and hashing on the backend, and perform transaction within the user's account.
 
 ***Technology/Langauges Used***
 .NET 6 framework, MVC format, Entity Framework, Javascript, JQuery, and C#.
 
 ***Challenges***
-- 
-- 
-- 
+- MVC
+- Entity Framework
+- Passing data from controller to view
 
 ***Solutions***
+- The structure of MVC was difficult to wrap my head around, initially. I was able to gain an understanding of controllers and views in order to navigate around the website. Some code below demonstrates this:
+```
+[HttpPost]
+        public IActionResult Login(User obj)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = _unitOfWork.Users.GetFirstOrDefault(x => x.Username == obj.Username);
+                if (user == null)
+                {
+                    TempData["error"] = "No user found.";
+                    return View(obj);
+                }
+                else
+                {
+                    string password = obj.Password;
+                    password += user.Salt;
+
+                    string newHash = ComputeSha256Hash(password);
+
+                    if(newHash == user.Password)
+                    {
+                        TempData["success"] = "Login Successful!";
+                        return RedirectToAction("Bank", user); //TODO: Change to correct redirect page.
+                    }
+                }
+            }
+            return View(obj);
+        }
+```
+- Jumping into Entity Framework from little to no web application experience was mind-boggling. Thankfully with the help of my teammates, we were all able to gain an understanding and fully utilize EF. Below is an example of a funciton I wrote that demonstrates the use of EF:
+```
+public IActionResult Deposit(AccountVM obj, int userId)
+        {
+            if (ModelState.IsValid)
+            {
+                int UserId = userId;
+                
+                //Accounts account = _unitOfWork.Account.GetFirstOrDefault(u => u.UserId == UserId && u.AccountTypeId == obj.Account.AccountTypeId, includeProperties: "User,AccountType");
+                Accounts account = _db.Accounts.Where(u => u.UserId == UserId && u.AccountTypeId == obj.Account.AccountTypeId).FirstOrDefault();
+                account.Balance += obj.Account.Balance;
+
+                
+                _unitOfWork.Account.Update(account);
+                _unitOfWork.Save();
+                User user = _unitOfWork.Users.GetFirstOrDefault(u => u.userId == UserId);
+                TempData["success"] = "Balance Updated.";
+                return RedirectToAction("Bank", user);
+            }
+
+            obj.AccountTypeList = _unitOfWork.AccountType.GetAll().Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.AccountTypeId.ToString()
+            });
+
+            return View(obj);
+        }
+   ```
+   - Finally, passing data around in MVC proved to be the most challenging thing for myself. I learned and employed numerous ways to pass data across views within the application. Some small snippets of code below help illustrate this:
+   ```
+   @model AccountVM
+   @using TigerBank.Models.ViewModels
+   ```
+   ```
+   <div class="mb-3">
+            <label asp-for="Account.Balance"></label>
+            <input asp-for="Account.Balance" class="form-control" />
+            <span asp-validation-for="Account.Balance" class="text-danger"></span>
+    </div>
+   ```
+   ```
+    public void Update(Accounts obj)
+        {
+            var objFromDb = _db.Accounts.FirstOrDefault(u => u.UserId == obj.UserId);
+            if(objFromDb != null)
+            {
+                
+                objFromDb.Balance = obj.Balance;
+                objFromDb.UserId = obj.UserId;
+                objFromDb.AccountTypeId = obj.AccountTypeId;
+            }
+        }
+   ```
+
 ### Hangman
 _____________________________
