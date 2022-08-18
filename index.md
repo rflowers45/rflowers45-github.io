@@ -348,5 +348,5 @@ PHP, SQL, and SSL Certificates
         }
 ```
 
-
+Overall, this was a fantastic starting assignment. It provided an example of things to come within my software engineering journey. Though simple and not very pretty, it serves as a great jump-off point for getting into full-scale development.
 
