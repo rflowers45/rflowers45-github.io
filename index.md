@@ -79,6 +79,53 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
             });
         });
 ```
+- On the backend, I was able to pull stock history data from an API and display it to the user via AJAX. Below is one of the functions I wrote to retrieve the initial stock data:
+```
+
+        //Retrieves stock data in a clump and returns the data
+        public IActionResult OnPostGetStocks(string value)
+        {
+            try
+            {
+                //*********API CALL*************
+                var symbol = value; //Setting the ticker symbol to what the user has entered
+                var apiKey = "##########"; // API Key has been redacted
+                var dailyPrices = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&outputsize=full&apikey={apiKey}&datatype=csv"
+                    .GetStringFromUrl().FromCsv<List<StockData>>();
+                //*********API CALL*************
+
+                //This fills the object with values
+                dailyPrices.PrintDump();
+
+                int lastIndex = dailyPrices.Count() - 1; //This is used to get the total amount of indices in the list. For random generation
+                var testDate = GetRandomDate(lastIndex); //Getting a random indices for closing stock price
+                string dateString = dailyPrices[testDate].Timestamp.ToString();
+                
+                //This grabs the objects day
+                var dayPrice = dailyPrices[testDate].Close;//This gets the price
+                price = dayPrice; //Setting the global price to = the day price
+                string displayResults = ("Getting data for " + value + "<br> Date: " + dateString + "<br> Closing price: $" + dayPrice);
+                //SESSION VARIABLES
+                HttpContext.Session.SetString("balance", "10000");
+                HttpContext.Session.SetString("price", price.ToString());
+                HttpContext.Session.SetInt32("shares", 0);
+                HttpContext.Session.SetInt32("currentDay", testDate);
+                HttpContext.Session.SetInt32("dayCounter", 1);
+                HttpContext.Session.SetString("ticker", value);
+
+                return new JsonResult(displayResults);
+
+            }
+            catch (Exception)
+            {
+                return new JsonResult("Ticker symbol not found or random date is not a trading day. Try again.");
+
+            }
+
+        }
+```
+I felt very confident with this project and spent a large amount of time dedicated to it. I'm glad I had the opportunity to build this application!
+
 ### Boggle
 _____________________________
 
