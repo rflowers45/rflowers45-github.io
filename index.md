@@ -209,6 +209,7 @@ _____________________________
 This project allows a user to login to a banking application and perform various transactions and banking related tasks. The project includes the ability to create an account, log into an account, salting and hashing on the backend, and perform transaction within the user's account.
 
 ***Technology/Langauges Used***
+
 .NET 6 framework, MVC format, Entity Framework, Javascript, JQuery, and C#.
 
 ***Challenges***
@@ -304,5 +305,48 @@ public IActionResult Deposit(AccountVM obj, int userId)
 
 ### Hangman
 _____________________________
+
+![A picture of a simple hangman application](/docs/assets/hangman.PNG)
+
+A simple game of hangman. This project was short and sweet; a good starter project that demonstrates the use of a database and asynchronous interaction web interaction.
+
+***Technology/Langauges Used***
+
+PHP, SQL, and SSL Certificates
+
+***Challenges***
+- Session Variables
+- SSL Certificates
+
+***Solutions***
+- This was my first exposure to session variables, POST, GET, and how websites store data. I was able to make great use of session variables in this assignment:
+```
+//STANDARD GAMEPLAY CONDITION
+    if ($loseCondition == FALSE && $winCondition == FALSE) {
+        //Storing the amount of attempts
+        if (isset($_SESSION["attempt"])) {
+            //get it
+            $attempt = $_SESSION["attempt"];
+        } else {
+            //set a default value if not isset
+            $attempt = 0;
+        }
+```
+```
+//Generates underscores for length of word
+        for ($i = 0; $i < $wordLength; $i++) {
+            //Converting guessed letters into an array of characters
+            $chars = str_split($AllLettersGuessed);
+            if (in_array($word[$i], $chars)) { //checks if a the letter stored in guesses matches a letter in word
+                echo $word[$i]; //if letter exists, fill it
+                $correctCount--;
+                $_SESSION["correct"] = $correctCount;
+            } else {
+                echo "_"; //if not, place an underscore
+            }
+            echo " "; //space between each letter for readability
+        }
+```
+
 
 
