@@ -6,7 +6,8 @@ I'm a team guy; I like solving problems with my team and leading them to the fin
 Below are some projects I've built.
 
 ## Projects
-### Stock Investing
+
+### Stock Investing [Link](https://github.com/rflowers45/StockInvestingGame)
 _____________________________
 
 ![Stock Investing Application](/docs/assets/Investing.png)
@@ -126,7 +127,7 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
 ```
 I felt very confident with this project and spent a large amount of time dedicated to it. I'm glad I had the opportunity to build this application!
 
-### Boggle
+### Boggle [Link](https://github.com/kayleedockter/BoggleGame)
 _____________________________
 
 ![A photo of a boggle game interface](/docs/assets/Boggle.PNG)
@@ -201,7 +202,7 @@ public async Task Submit(string word)
 
 This project was challenging for myself. SignalR and asynchronous tasks were initially difficult to wrap my head around. Completing this project pushed myself as a software engineer and I am able to walk away with a better understanding of industry-standard technology.
 
-### Banking
+### Banking [Link](https://github.com/rflowers45/TigerBanking)
 _____________________________
 
 ![A photo of a boggle game interface](/docs/assets/banking.PNG)
@@ -303,7 +304,7 @@ public IActionResult Deposit(AccountVM obj, int userId)
         }
    ```
 
-### Hangman
+### Hangman [Link](http://cs3750flower.epizy.com/signup.php?i=1)
 _____________________________
 
 ![A picture of a simple hangman application](/docs/assets/hangman.PNG)
