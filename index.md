@@ -171,7 +171,7 @@ The goal of this project was to create a boggle (or boggle-like) game where play
             }            
         }
 ```
-- The use of SignalR was foreign to my team and myself, therfore thorough research and documentation was required in order to implement its use. Similar to the code above, the code below features some usage of SignalR function and the cooresponding javascript functions it calls:
+- The use of SignalR was foreign to my team and myself; thorough research and documentation was required in order to implement its use. Similar to the code above, the code below features some usage of SignalR function and the cooresponding javascript functions it calls:
 ```
 public async Task Submit(string word)
         {
