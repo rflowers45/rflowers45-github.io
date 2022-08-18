@@ -129,6 +129,8 @@ I felt very confident with this project and spent a large amount of time dedicat
 ### Boggle
 _____________________________
 
+![A photo of a boggle game interface](/docs/assets/Boggle.png)
+
 The goal of this project was to create a boggle (or boggle-like) game where players select letters from a grid to form a word. The players have a limited amount of time, usually 60-90 seconds, to form as many words as they can. Words are scored based on length. The game requires at least 2 people to participate and results are dispayed at the end of the game.
 
 ***Technology/Langauges Used***
@@ -140,9 +142,46 @@ The goal of this project was to create a boggle (or boggle-like) game where play
 - Asynchronous Timer
 
 ***Solutions***
+- The feature of having multiple players proved to be the most challenging aspect of this project. With enough research, I was able to successfully incorporate multiple players into the game. Below is some code providing an idea of how this was accomplished:
+```
+        //Keeping track of players
+        public static List<string> playerID = new List<string>();
+        public static int playerCount = 0;
+        public static List<string> player_one_words = new List<string>();
+        public static List<string> player_two_words = new List<string>();
+        public static int player_one_score = 0;
+        public static int player_two_score = 0;
+
+        //Checking for player count
+        public override async Task OnConnectedAsync()
+        {
+            await Clients.All.SendAsync("HideBoggle");
+            playerID.Add(Context.ConnectionId);
+            playerCount++;
+            await base.OnConnectedAsync();
+            if (playerCount < 2)
+            {
+                await Clients.All.SendAsync("DisableButtons");
+            }
+            else if (playerCount == 2)
+            {
+                await Clients.All.SendAsync("EnableButtons");
+            }            
+        }
+```
+
 
 ### Banking
 _____________________________
 
+***Technology/Langauges Used***
+.NET 6 framework, MVC format, Entity Framework, Javascript, JQuery, and C#.
+
+***Challenges***
+- 
+- 
+- 
+
+***Solutions***
 ### Hangman
 _____________________________
