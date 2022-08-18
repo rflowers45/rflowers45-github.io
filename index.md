@@ -283,6 +283,7 @@ public IActionResult Deposit(AccountVM obj, int userId)
    @model AccountVM
    @using TigerBank.Models.ViewModels
    ```
+   
    ```
    <div class="mb-3">
             <label asp-for="Account.Balance"></label>
@@ -290,6 +291,7 @@ public IActionResult Deposit(AccountVM obj, int userId)
             <span asp-validation-for="Account.Balance" class="text-danger"></span>
     </div>
    ```
+   
    ```
     public void Update(Accounts obj)
         {
