@@ -3,7 +3,7 @@ Hi, I'm an aspiring software engineer and computer science student at Weber Stat
 
 I'm a team guy; I like solving problems with my team and leading them to the finish line!
 
-Below are some projects I've built.
+Below are some projects I've built:
 
 ## Projects
 
