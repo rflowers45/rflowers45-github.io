@@ -10,8 +10,8 @@ Below are some projects I've built:
 ### Stock Investing [Link](https://github.com/rflowers45/StockInvestingGame)
 _____________________________
 
-![Stock Investing Application](/docs/assets/Investing2.png)
-![Stock Investing Application](/docs/assets/Investing3.png)
+![Stock Investing Application](/docs/assets/Investing2.PNG)
+![Stock Investing Application](/docs/assets/Investing3.PNG)
 
 An investment simulation where the user is given 7 random days and $10,000 in cash in an attempt to make a profit.
 
@@ -23,6 +23,7 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
 - Displaying a chart
 - Linking 3 interactive UI elements together
 - Asynchronous API Calls
+- Creating an accessible web-page to accomodate a wide-variety of needs
 
 ***Solutions***
 
@@ -126,6 +127,7 @@ An investment simulation where the user is given 7 random days and $10,000 in ca
 
         }
 ```
+-I employed various universal design techniques and provided accessibility options, such as a high contrast button toggle, large fonts, etc.
 I felt very confident with this project and spent a large amount of time dedicated to it. I'm glad I had the opportunity to build this application!
 
 ### Boggle [Link](https://github.com/kayleedockter/BoggleGame)
