@@ -10,7 +10,8 @@ Below are some projects I've built:
 ### Stock Investing [Link](https://github.com/rflowers45/StockInvestingGame)
 _____________________________
 
-![Stock Investing Application](/docs/assets/Investing.png)
+![Stock Investing Application](/docs/assets/Investing2.png)
+![Stock Investing Application](/docs/assets/Investing3.png)
 
 An investment simulation where the user is given 7 random days and $10,000 in cash in an attempt to make a profit.
 
